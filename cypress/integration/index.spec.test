@@ -1,0 +1,10 @@
+describe("Testing the index.html page", () => {
+   // start writing your scenarios
+   it("User comes to the webpage for the first time", ()=> {
+       // GIVEN: That user has not yet reached the website
+       // WHEN: The user lands on the website
+       cy.visit("/")
+       // THEN: They should see the welecome message
+       cy.get("h1").should("have.text", "Who is your favorite pokemon?")
+   })
+})
