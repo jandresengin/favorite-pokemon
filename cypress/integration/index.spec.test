@@ -6,5 +6,23 @@ describe("Testing the index.html page", () => {
        cy.visit("/")
        // THEN: They should see the welecome message
        cy.get("h1").should("have.text", "Who is your favorite pokemon?")
-   })
+   });
+   
+
+   it(" The user enters a pokemon name that does not exist", () => {
+        //•	GIVEN: The user is on the page AND has typed "pikachu" 
+        // in the input box
+        cy.visit("/")
+        cy.get("#txt-pokemon-name").type("pikachu")
+        
+        // WHEN: The presses the submit button
+
+        cy.get("#btn-submit").click()
+
+        // THEN:  The resultsLabel should display "No matching pokemon found".
+
+        cy.get("#resultsLabel").should("have.text", "No matching pokemon found")
+        
+    });
+   
 })
